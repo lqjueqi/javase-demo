@@ -13,10 +13,10 @@ public class InsertSort {
             a[i] = (int) (Math.random() * 8000000);
         }
 
-        long strat = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         insertSort(a);
         long end = System.currentTimeMillis();
-        long time = end - strat;
+        long time = end - start;
         System.out.println("用时" + time + "ms");
         //System.out.println(Arrays.toString(a));
     }
