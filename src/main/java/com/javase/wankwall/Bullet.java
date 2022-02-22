@@ -27,6 +27,8 @@ public class Bullet {
         move();
     }
 
+
+
     private void move() {
         switch (dir) {
             case LEFT:
