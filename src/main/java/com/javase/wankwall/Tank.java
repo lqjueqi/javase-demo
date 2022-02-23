@@ -8,9 +8,11 @@ import java.awt.*;
  */
 public class Tank {
     private int x,y;
+    private int WIDTH=50,HEIGHT=50;
     private Dir dir = Dir.DOWN;
     private static final int SPEED = 10;
     private boolean moving = false;
+    private TankFrame tf = null;
 
     public Dir getDir() {
         return dir;
@@ -28,16 +30,17 @@ public class Tank {
         this.dir = dir;
     }
 
-    public Tank(int x, int y, Dir dir) {
+    public Tank(int x, int y, Dir dir,TankFrame tf) {
         this.x = x;
         this.y = y;
         this.dir = dir;
+        this.tf = tf;
     }
 
     public void paint(Graphics g) {
         Color c = g.getColor();
         g.setColor(Color.YELLOW);
-        g.fillRect(x,y,50,50);
+        g.fillRect(x,y,WIDTH,HEIGHT);
         g.setColor(c);
         move();
     }
@@ -58,5 +61,9 @@ public class Tank {
                 y+=SPEED;
                 break;
         }
+    }
+
+    public void fire() {
+        tf.bullets.add(new Bullet(this.x+18,this.y+18,this.dir,this.tf));
     }
 }
