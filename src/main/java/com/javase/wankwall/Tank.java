@@ -1,6 +1,7 @@
 package com.javase.wankwall;
 
 import java.awt.*;
+import java.util.Random;
 
 /**
  * @author: Admin
@@ -10,12 +11,30 @@ public class Tank {
     private int x, y;
     public static int WIDTH = ResourceMgr.tankD.getWidth();
     public static int HEIGHT = ResourceMgr.tankD.getHeight();
+    private Random random = new Random();
     private Dir dir = Dir.DOWN;
-    private static final int SPEED = 10;
-    private boolean moving = false;
+    private static final int SPEED = 1;
+    private boolean moving = true;
     private TankFrame tf = null;
 
     private boolean living = true;
+    private Group group = Group.BAD;
+
+    public Tank(int x, int y, Dir dir, Group group, TankFrame tf) {
+        this.x = x;
+        this.y = y;
+        this.dir = dir;
+        this.group = group;
+        this.tf = tf;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 
     public int getX() {
         return x;
@@ -49,12 +68,6 @@ public class Tank {
         this.dir = dir;
     }
 
-    public Tank(int x, int y, Dir dir, TankFrame tf) {
-        this.x = x;
-        this.y = y;
-        this.dir = dir;
-        this.tf = tf;
-    }
 
     public void paint(Graphics g) {
         if (!living) tf.tanks.remove(this);
@@ -94,12 +107,13 @@ public class Tank {
                 y += SPEED;
                 break;
         }
+        if (random.nextInt(10) > 8) this.fire();
     }
 
     public void fire() {
         int bX = this.x + Tank.WIDTH / 2 - Bullet.WIDTH / 2;
         int bY = this.y + Tank.HEIGHT / 2 - Bullet.HEIGHT / 2;
-        tf.bullets.add(new Bullet(bX, bY, this.dir, this.tf));
+        tf.bullets.add(new Bullet(bX, bY, this.dir, this.group, this.tf));
     }
 
     public void die() {

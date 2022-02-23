@@ -13,7 +13,7 @@ import java.util.List;
  * @create: 2022/2/21 21:23
  */
 public class TankFrame extends Frame {
-    Tank myTank = new Tank(200, 400, Dir.UP, this);
+    Tank myTank = new Tank(200, 400, Dir.UP, Group.GOOD, this);
     //Bullet bullet = new Bullet(300, 300, Dir.DOWN);
     List<Bullet> bullets = new ArrayList();
     List<Tank> tanks = new ArrayList();
@@ -56,8 +56,8 @@ public class TankFrame extends Frame {
     public void paint(Graphics g) {
         Color c = g.getColor();
         g.setColor(Color.WHITE);
-        g.drawString("子弹的数量："+bullets.size(),10,60);
-        g.drawString("敌人的数量："+tanks.size(),10,80);
+        g.drawString("子弹的数量：" + bullets.size(), 10, 60);
+        g.drawString("敌人的数量：" + tanks.size(), 10, 80);
         g.setColor(c);
         myTank.paint(g);
         for (int i = 0; i < bullets.size(); i++) {
