@@ -9,10 +9,10 @@ import java.util.Arrays;
  */
 public class SelectSort {
     public static void main(String[] args) {
-        int[] arr = {3, 9, -1, 10, -2};
-
-        selectSort(arr);
-        System.out.println(Arrays.toString(arr));
+//        int[] arr = {3, 9, -1, 10, -2};
+//
+//        selectSort(arr);
+//        System.out.println(Arrays.toString(arr));
 
         int[] a = new int[80000];
         for (int i = 0; i < 80000; i++) {

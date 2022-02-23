@@ -1,13 +1,19 @@
 package com.javase.datastructureandalgorithm.sort;
 
+import org.openjdk.jol.info.ClassLayout;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author: Admin
  * @create: 2020/9/8 12:37
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] a = new int[80000];
-        for (int i = 0; i < 80000; i++) {
+        int[] a = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
             a[i] = (int) (Math.random() * 8000000);
         }
 
@@ -17,6 +23,7 @@ public class QuickSort {
         long time = end - start;
         System.out.println("用时" + time + "ms");
         //System.out.println(Arrays.toString(a));
+
     }
 
     public static void quickSort(int[] arr, int left, int right) {

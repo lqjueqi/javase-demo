@@ -9,6 +9,7 @@ import java.util.Random;
 public class GCDemo {
     public static void main(String[] args) throws InterruptedException {
         System.out.println("-----GCDemo-----");
+
         try {
             String str = "hello GC";
             while (true) {

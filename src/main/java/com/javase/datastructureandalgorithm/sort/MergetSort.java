@@ -6,8 +6,8 @@ package com.javase.datastructureandalgorithm.sort;
  */
 public class MergetSort {
     public static void main(String[] args) {
-        int[] a = new int[80000];
-        for (int i = 0; i < 80000; i++) {
+        int[] a = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
             a[i] = (int) (Math.random() * 8000000);
         }
 

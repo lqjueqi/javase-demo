@@ -8,16 +8,16 @@ import java.util.Arrays;
  */
 public class ShellSort {
     public static void main(String[] args) {
-        int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
+        //int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
         //shellSort(arr);
         //System.out.println(Arrays.toString(arr));
-        int[] a = new int[80000];
-        for (int i = 0; i < 80000; i++) {
+        int[] a = new int[8000000];
+        for (int i = 0; i < 8000000; i++) {
             a[i] = (int) (Math.random() * 8000000);
         }
 
         long start = System.currentTimeMillis();
-        shellSort(a);
+        //shellSort(a);
         shellSort2(a);
         long end = System.currentTimeMillis();
         long time = end - start;
@@ -44,14 +44,14 @@ public class ShellSort {
     public static void shellSort2(int[] arr) {
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
-                int j = i;
-                int temp = arr[j];
-                if (arr[j] < arr[j - gap]) {
-                    while (j - gap >= 0 && temp < arr[j - gap]) {
-                        arr[j] = arr[j - gap];
-                        j -= gap;
+                int index = i;
+                int temp = arr[index];
+                if (arr[index] < arr[index - gap]) {
+                    while (index - gap >= 0 && temp < arr[index - gap]) {
+                        arr[index] = arr[index - gap];
+                        index -= gap;
                     }
-                    arr[j] = temp;
+                    arr[index] = temp;
                 }
             }
         }
