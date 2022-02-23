@@ -8,7 +8,8 @@ import java.awt.*;
  */
 public class Tank {
     private int x, y;
-    private int WIDTH = 50, HEIGHT = 50;
+    public static int WIDTH = ResourceMgr.tankD.getWidth();
+    public static int HEIGHT = ResourceMgr.tankD.getHeight();
     private Dir dir = Dir.DOWN;
     private static final int SPEED = 10;
     private boolean moving = false;
@@ -76,6 +77,8 @@ public class Tank {
     }
 
     public void fire() {
-        tf.bullets.add(new Bullet(this.x + 18, this.y + 18, this.dir, this.tf));
+        int bX = this.x + Tank.WIDTH / 2 - Bullet.WIDTH / 2;
+        int bY = this.y + Tank.HEIGHT / 2 - Bullet.HEIGHT / 2;
+        tf.bullets.add(new Bullet(bX, bY, this.dir, this.tf));
     }
 }
