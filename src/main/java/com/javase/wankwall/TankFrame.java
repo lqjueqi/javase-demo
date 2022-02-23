@@ -23,7 +23,6 @@ public class TankFrame extends Frame {
 
         setResizable(false);
         setTitle("tank war");
-        setBackground(Color.green);
 
         setVisible(true);
         this.addKeyListener(new MyKeyListener());
