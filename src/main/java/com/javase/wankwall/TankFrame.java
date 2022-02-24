@@ -17,7 +17,7 @@ public class TankFrame extends Frame {
     //Bullet bullet = new Bullet(300, 300, Dir.DOWN);
     List<Bullet> bullets = new ArrayList();
     List<Tank> tanks = new ArrayList();
-    Explode e = new Explode(100, 100, this);
+    List<Explode> explodes = new ArrayList<>();
     static final int GAME_WIDTH = 800, GAME_HEIGHT = 600;
 
     public TankFrame() {
@@ -59,14 +59,17 @@ public class TankFrame extends Frame {
         g.setColor(Color.WHITE);
         g.drawString("子弹的数量：" + bullets.size(), 10, 60);
         g.drawString("敌人的数量：" + tanks.size(), 10, 80);
+        g.drawString("敌人的数量：" + tanks.size(), 10, 80);
         g.setColor(c);
         myTank.paint(g);
-        e.paint(g);
         for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).paint(g);
         }
         for (int i = 0; i < tanks.size(); i++) {
             tanks.get(i).paint(g);
+        }
+        for (int i = 0; i < explodes.size(); i++) {
+            explodes.get(i).paint(g);
         }
 
         for (int i = 0; i < bullets.size(); i++) {
@@ -74,6 +77,7 @@ public class TankFrame extends Frame {
                 bullets.get(i).collideWith(tanks.get(j));
             }
         }
+
     }
 
     class MyKeyListener extends KeyAdapter {

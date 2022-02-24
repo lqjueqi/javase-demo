@@ -13,7 +13,7 @@ public class Tank {
     public static int HEIGHT = ResourceMgr.tankD.getHeight();
     private Random random = new Random();
     private Dir dir = Dir.DOWN;
-    private static final int SPEED = 1;
+    private static final int SPEED = 5;
     private boolean moving = true;
     private TankFrame tf = null;
 
